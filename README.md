@@ -52,7 +52,7 @@ where:
 - $\pi_c$ = prior probability of child $c$  
 - $c_{\text{base}} = 19652$, $c_{\text{init}} = 1.25$  
 - $r_c$ = reward of transitioning to child  
-- $V_c = \frac{\text{value\_sum}_c}{N_c}$  
+- $$V_c = \frac{valuesum_c}{N_c}$$
 - $\gamma = 0.9$ = discount factor  
 
 ---
@@ -85,13 +85,13 @@ For each sampled observation, we unroll it $t$ steps and compute target value, r
 Target value $z_t$ is:
 
 $$
-z_t = \sum_{i=0}^{\min(\text{td\_steps}, T - t) - 1} \gamma^i r_{t+i} \;+\; \gamma^{\text{td\_steps}} V_{t + \text{td\_steps}}
+z_t = \sum_{i=0}^{\min(td\_steps, \; T - t) - 1} \gamma^i r_{t+i} \;+\; \gamma^{td\_steps} V_{t + td\_steps}
 $$
 
 - $r_{t+i}$ = reward at step $t+i$  
 - $\gamma = 0.9$ = discount factor  
-- $\text{td\_steps} = 7$ = temporal difference horizon  
-- $V_{t + \text{td\_steps}}$ = bootstrap value  
+- $tdsteps = 7$ = temporal difference horizon  
+- $V_{t + tdsteps}$ = bootstrap value 
 
 Target policy at step $t$ is the normalized visit count distribution:
 
